@@ -1,6 +1,7 @@
 # 🤖 AI HR Recruiter Bot
 
 [![En](https://img.shields.io/badge/lang-en-red.svg)](README.md)
+[![CI Tests](https://github.com/EdvardFarrow/hr_bot/actions/workflows/tests.yml/badge.svg)](https://github.com/EdvardFarrow/hr_bot/actions/workflows/tests.yml)
 ![Coverage](./coverage.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![Aiogram](https://img.shields.io/badge/Aiogram-3.x-2ca5e0.svg)
