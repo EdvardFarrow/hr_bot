@@ -1,4 +1,4 @@
-# AI HR Recruiter Bot
+# 🤖 AI HR Recruiter Bot
 
 [![Ru](https://img.shields.io/badge/lang-ru-green.svg)](README_ru.md)
 ![Coverage](./coverage.svg)
