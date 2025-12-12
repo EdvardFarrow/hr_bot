@@ -45,4 +45,8 @@ jobs:
           poetry run flake8 .
 
       - name: Run Tests
+        env:
+          BOT_TOKEN: "123:bot_token_for_ci_tests"
+          GOOGLE_API_KEY: "google_key_for_tests"
+          REDIS_HOST: "localhost"
         run: poetry run pytest -v
