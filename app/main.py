@@ -13,11 +13,7 @@ from app.bot.handlers import router
 setup_logging()
 logger = logging.getLogger(__name__)
 
-redis = Redis(
-    host=settings.REDIS_HOST,
-    port=settings.REDIS_PORT,
-    decode_responses=True 
-)
+redis = Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, decode_responses=True)
 
 storage = RedisStorage(redis=redis)
 
@@ -33,12 +29,12 @@ async def lifespan(app: FastAPI):
     Controls the starting and stopping of background tasks.
     """
     logger.info("Starting up bot polling...")
-    
+
     polling_task = asyncio.create_task(dp.start_polling(bot))
-    yield  
+    yield
 
     logger.info("Shutting down...")
-    
+
     polling_task.cancel()
     try:
         await polling_task
@@ -46,9 +42,9 @@ async def lifespan(app: FastAPI):
         logger.info("Bot polling stopped gracefully")
 
     await bot.session.close()
-    
+
     await redis.aclose()
-    
+
     logger.info("All connections closed. Bye!")
 
 
@@ -56,8 +52,9 @@ app = FastAPI(
     title="Abc Tech HR Bot",
     description="AI-Powered Recruiter Bot with Resume Parsing",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
 )
+
 
 @app.get("/health", status_code=200)
 async def health_check():
@@ -70,8 +67,4 @@ async def health_check():
     except Exception:
         redis_status = "down"
 
-    return {
-        "status": "ok",
-        "bot_mode": "polling",
-        "redis": redis_status
-    }
+    return {"status": "ok", "bot_mode": "polling", "redis": redis_status}

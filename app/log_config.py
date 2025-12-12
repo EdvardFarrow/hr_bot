@@ -9,4 +9,3 @@ def setup_logging(level=logging.INFO):
         handlers=[logging.StreamHandler(sys.stdout)],
     )
     return logging.getLogger()
-

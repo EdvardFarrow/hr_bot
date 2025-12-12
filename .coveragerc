@@ -1,0 +1,8 @@
+[run]
+omit =
+    app/main.py
+    app/log_config.py
+    app/config.py
+    app/bot/keyboards.py
+    app/services/ai.py
+    app/**/__init__.py
