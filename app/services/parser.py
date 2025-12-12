@@ -6,6 +6,7 @@ import httpx
 from pypdf import PdfReader
 from bs4 import BeautifulSoup
 
+
 logger = logging.getLogger(__name__)
 
 class ContentParser:
